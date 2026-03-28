@@ -21,7 +21,7 @@ async function fetchData() {
     }
     try {
         const data = await response.json()
-        const pokemonSprite = await data.sprites.versions["generation-viii"]["brilliant-diamond-shining-pearl"].front_default;
+        const pokemonSprite = await data.sprites.front_default;
         pokemonName.textContent = data.name
         img.src = pokemonSprite
         img.style.display = "block"
@@ -57,7 +57,7 @@ function render() {
         htmlStr = htmlStr + `<div class="data">
             <div>
                 <p>${item.pokemonName}</p>
-                <img src="${item.imgUrl}" alt="pokemon sprite" style="display: block">
+                <img src="${item.imgUrl}" alt="pokemon sprite" id="pokemonSprite" style="display: block">
             </div>
         </div>`
     })
